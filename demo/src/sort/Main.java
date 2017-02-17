@@ -11,7 +11,8 @@ public class Main {
 //		sort.bubbleSort(R);
 //		sort.quickSort(R, 0, R.length-1);
 //		sort.quickSort2(R, 0, R.length-1);
-		sort.selectSort(R);
+//		sort.selectSort(R);
+		sort.heapSort(R, R.length-1);
 		log(R);
 	}
 	

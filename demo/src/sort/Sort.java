@@ -78,7 +78,7 @@ public class Sort {
 		quickSort(R, i + 1, t);
 	}
 
-	//快速排序2
+	// 快速排序2
 	void quickSort2(int[] R, int s, int t) {
 		if (s >= t) {
 			return;
@@ -99,7 +99,7 @@ public class Sort {
 		quickSort2(R, q + 1, t);
 	}
 
-	//选择排序
+	// 选择排序
 	void selectSort(int[] R) {
 		for (int i = 0; i < R.length; i++) {
 			int k = i;
@@ -115,4 +115,43 @@ public class Sort {
 			}
 		}
 	}
+
+	// -------------------------堆排序 start----------------
+	// 筛选算法：目的在于将两子堆与父节点一起构成大堆。
+	// 当发生子节点与父节点交换时，该子节点原先的堆可能被打破，需要向下迭代建堆。
+	void sift(int[] R, int low, int high) {
+		int i = low, j = 2 * i+1; //R[j]为R[i]左孩
+		int  tmp = R[i];
+		while (j <= high) { // j = high时只有左孩
+			if (j < high && R[j + 1] > R[j]) {
+				j++;
+			}
+			if (R[j] > tmp) {
+				// 有子节点大于父节点，继续向下遍历
+				R[i] = R[j];
+				i = j; // 指向被置换的孩子
+				j = 2 * i;
+			} else {
+				// 没有子节点大于父节点，结束向下遍历
+				break;
+			}
+			R[i] = tmp;
+		}
+	}
+
+	// 堆排序算法
+	void heapSort(int[] R, int n) {
+		// 从叶子节点开始建堆
+		for (int i = n / 2; i >= 0; i--) {
+			sift(R, i, n);
+		}
+		// 将大根堆的首位与无序区的最后一位互换
+		for (int j = n; j >= 1; j--) {
+			int tmp = R[j];
+			R[j] = R[0];
+			R[0] = tmp;
+			sift(R, 0, j-1);
+		}
+	}
+	// -------------------------堆排序 end----------------
 }
