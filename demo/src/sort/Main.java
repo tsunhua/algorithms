@@ -12,7 +12,8 @@ public class Main {
 //		sort.quickSort(R, 0, R.length-1);
 //		sort.quickSort2(R, 0, R.length-1);
 //		sort.selectSort(R);
-		sort.heapSort(R, R.length-1);
+//		sort.heapSort(R, R.length-1);
+		sort.mergeSort(R, R.length);
 		log(R);
 	}
 	

@@ -120,8 +120,8 @@ public class Sort {
 	// 筛选算法：目的在于将两子堆与父节点一起构成大堆。
 	// 当发生子节点与父节点交换时，该子节点原先的堆可能被打破，需要向下迭代建堆。
 	void sift(int[] R, int low, int high) {
-		int i = low, j = 2 * i+1; //R[j]为R[i]左孩
-		int  tmp = R[i];
+		int i = low, j = 2 * i + 1; // R[j]为R[i]左孩
+		int tmp = R[i];
 		while (j <= high) { // j = high时只有左孩
 			if (j < high && R[j + 1] > R[j]) {
 				j++;
@@ -150,8 +150,65 @@ public class Sort {
 			int tmp = R[j];
 			R[j] = R[0];
 			R[0] = tmp;
-			sift(R, 0, j-1);
+			sift(R, 0, j - 1);
 		}
 	}
 	// -------------------------堆排序 end----------------
+	
+	// -------------------------归并排序 start----------------
+	// 归并两个表,表1：low~mid,表2：mid+1~high
+	void merge(int R[], int low, int mid, int high) {
+		// i指向表1开始，j指向表2开始，k指向新表开始
+		int i = low, j = mid + 1, k = 0;
+		int T[] = new int[high - low + 1];
+
+		// 遍历比较
+		while (i <= mid && j <= high) {
+			if (R[i] <= R[j]) {
+				T[k] = R[i];
+				i++;
+				k++;
+			} else {
+				T[k] = R[j];
+				j++;
+				k++;
+			}
+		}
+		// 处理剩余元素
+		while (i <= mid) {
+			T[k] = R[i];
+			i++;
+			k++;
+		}
+		while (j <= high) {
+			T[k] = R[j];
+			j++;
+			k++;
+		}
+		// 复制元素
+		for (k = 0, i = low; i <= high; k++, i++) {
+			R[i] = T[k];
+		}
+	}
+
+	// 对整个表进行一趟归并
+	void mergePass(int[] R, int length, int n) {
+		int i;
+		for (i = 0; i + 2 * length - 1 < n; i = i + 2 * length) {
+			merge(R, i, i + length - 1, i + 2 * length);
+		}
+		if (i + length - 1 < n) {
+			merge(R, i, i + length - 1, n - 1);
+		}
+	}
+
+	// 从小表合并到大表
+	void mergeSort(int[] R, int n) {
+		int length;
+		for (length = 1; length < n; length = 2 * length) {
+			mergePass(R, length, n);
+		}
+	}
+	// -------------------------归并排序 end----------------
+
 }

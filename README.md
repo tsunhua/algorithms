@@ -225,6 +225,70 @@ void heapSort(int[] R, int n) {
 }
 ```
 
+#### 归并排序
+
+思路：
+
+将两个有序的子表合并成一个有序的表。每次从两表中取表头的元素比较，小者归位，当无可比较时剩余元素归位。
+
+算法实现：
+
+```java
+// 归并两个表,表1：low~mid,表2：mid+1~high
+void merge(int R[], int low, int mid, int high) {
+	// i指向表1开始，j指向表2开始，k指向新表开始
+	int i = low, j = mid + 1, k = 0;
+	int T[] = new int[high - low + 1];
+
+	// 遍历比较
+	while (i <= mid && j <= high) {
+		if (R[i] <= R[j]) {
+			T[k] = R[i];
+			i++;
+			k++;
+		} else {
+			T[k] = R[j];
+			j++;
+			k++;
+		}
+	}
+	// 处理剩余元素
+	while (i <= mid) {
+		T[k] = R[i];
+		i++;
+		k++;
+	}
+	while (j <= high) {
+		T[k] = R[j];
+		j++;
+		k++;
+	}
+	// 复制元素
+	for (k = 0, i = low; i <= high; k++, i++) {
+		R[i] = T[k];
+	}
+}
+
+// 对整个表进行一趟归并
+void mergePass(int[] R, int length, int n) {
+	int i;
+	for (i = 0; i + 2 * length - 1 < n; i = i + 2 * length) {
+		merge(R, i, i + length - 1, i + 2 * length);
+	}
+	if (i + length - 1 < n) {
+		merge(R, i, i + length - 1, n - 1);
+	}
+}
+
+// 从小表合并到大表
+void mergeSort(int[] R, int n) {
+	int length;
+	for (length = 1; length < n; length = 2 * length) {
+		mergePass(R, length, n);
+	}
+}
+```
+
 
 
 
