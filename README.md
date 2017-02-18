@@ -297,4 +297,7 @@ void mergeSort(int[] R, int n) {
 
 ### 查找算法
 
-![查找算法](https://github.com/LinLshare/algorithms/blob/master/img/%e6%9f%a5%e6%89%be%e7%ae%97%e6%b3%95.png?raw=true)
+![查找算法](https://raw.githubusercontent.com/LinLshare/algorithms/master/img/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95.png)
+
+#### 顺序查找
+
