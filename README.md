@@ -332,3 +332,30 @@ int seqSearch2(int R[] ,int n,int key){
 }
 ```
 
+#### 折半查找
+
+思路：
+
+每次取中间索引的元素跟key比较，如果等于就返回索引，如果大于key就将high缩小，如果小于key就将low增大。
+
+算法实现：
+
+```java
+// 折半查找，假定该表使递增的有序表
+int binarySearch(int R[], int n, int key) {
+	int low = 0, high = n - 1;
+	while (low <= high) {
+		int mid = (low + high) / 2;
+		if (R[mid] == key) {
+			return mid;
+		} else if (R[mid] > key) {
+			high = mid - 1;
+		} else {
+			low = mid + 1;
+		}
+	}
+	return -1;
+}
+
+```
+
