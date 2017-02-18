@@ -194,12 +194,17 @@ public class Sort {
 	// 对整个表进行一趟归并
 	void mergePass(int[] R, int length, int n) {
 		int i;
+		//表1：i ~ i+length-1
+		//表2：i+length ~ i+2*length-1
+		//表3：i+2*length ~ i+3*length-1
 		for (i = 0; i + 2 * length - 1 < n; i = i + 2 * length) {
+			//当下两个相邻表的末尾一个元素大于等于n时跳出循环
 			merge(R, i, i + length - 1, i + 2 * length);
 		}
-		if (i + length - 1 < n) {
+		
+		if (i + length - 1 < n) {//此时剩下最后的两个相邻表
 			merge(R, i, i + length - 1, n - 1);
-		}
+		}//否则，只剩下最后一张表，不用归并
 	}
 
 	// 从小表合并到大表
