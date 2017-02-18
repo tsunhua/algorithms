@@ -301,3 +301,34 @@ void mergeSort(int[] R, int n) {
 
 #### 顺序查找
 
+思路：
+
+按顺序从左到右查找，找不到就递增序号，找到了或者到末尾了就中断查找，最后根据序号判定是否找到。ASL = (n+1)/2.
+
+算法实现：
+
+```java
+//顺序查找
+int seqSearch(int R[],int n,int key){
+	int i=0;
+	while(i<n && R[i]!=key){
+		i++;
+	}
+	if(i>=n){
+		return -1;
+	}else{
+		return i;
+	}
+}
+
+//顺序查找2
+int seqSearch2(int R[] ,int n,int key){
+	for(int i=0;i<n;i++){
+		if(R[i] == key){
+			return i;
+		}
+	}
+	return -1;
+}
+```
+
