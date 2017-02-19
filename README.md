@@ -428,3 +428,23 @@ int binarySearch(int R[], int n, int key) {
 
 ![](https://raw.githubusercontent.com/LinLshare/algorithms/master/img/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%80%E5%9D%8F%E6%83%85%E5%86%B5.png)
 
+#### B-树
+
+定义：
+
+- 空树；
+
+- 或者符合下列特征的 m 叉树：
+
+  - 所有的叶子节点在同一层且不带信息；
+
+  - 树中每个节点至多有m棵子树（即至多含有m-1个关键字）；
+
+  - 若节点不是终端节点，则根结点至少有两棵子树；
+
+  - 除了根节点外，其他非叶子节点至少有ceil( n/2 )棵子树（即至少含有 ceil( n/2 ) -1 个关键字）；
+
+  - 非叶子节点的结构
+
+    ​
+
