@@ -396,7 +396,7 @@ int binarySearch(int R[], int n, int key) {
 - 每个节点都有；
 - = 左子树高度 - 右子树高度。
 
-著名的平衡二叉树：AVL树。
+著名的平衡二叉排序树：AVL树。
 
 调整方法：
 
@@ -416,3 +416,12 @@ int binarySearch(int R[], int n, int key) {
 
 ![](https://raw.githubusercontent.com/LinLshare/algorithms/master/img/RL%E5%9E%8B%E4%BA%8C%E5%8F%89%E6%A0%91.png)
 
+从平衡的二叉排序树种删除一个节点：
+
+1. 先从左子树找到最大节点；
+2. 替代要删除的节点；
+3. 调整，使平衡。
+
+查找效率：
+
+同样的节点数当其达到最大高度时即是平衡二叉树的最坏情况。此时，类似Fibonacci数列。ASL = O( lgn )。
