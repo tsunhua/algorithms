@@ -446,5 +446,13 @@ int binarySearch(int R[], int n, int key) {
 
   - 非叶子节点的结构
 
-    ​
+    ![](https://raw.githubusercontent.com/LinLshare/algorithms/master/img/B%E6%A0%91%E9%9D%9E%E5%8F%B6%E5%AD%90%E8%8A%82%E7%82%B9%E7%9A%84%E7%BB%93%E6%9E%84.png)
+
+    - n：表示关键字个数，范围是：ceil( m/2 ) -1 ~ m-1
+    - P：孩子节点指针，所指关键字大于前面的关键字；
+    - K：关键字。
+
+B-树的阶（m）：所有节点的孩子节点数的最大值。
+
+查找：使用n+1路查找算法。因为n个关键字夹杂着n+1个指针指向孩子节点。
 
