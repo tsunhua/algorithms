@@ -476,7 +476,7 @@ B-树的阶（m）：所有节点的孩子节点数的最大值。
 
 查找过程：
 
-
+![哈希表查找过程](https://raw.githubusercontent.com/LinLshare/algorithms/master/img/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%9F%A5%E6%89%BE%E8%BF%87%E7%A8%8B.png)
 
 
 
