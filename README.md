@@ -478,5 +478,15 @@ B-树的阶（m）：所有节点的孩子节点数的最大值。
 
 ![哈希表查找过程](https://raw.githubusercontent.com/LinLshare/algorithms/master/img/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%9F%A5%E6%89%BE%E8%BF%87%E7%A8%8B.png)
 
+#### BF（Brute-Force）算法
 
+也称简单匹配算法。
 
+- s：主串、目标串；
+- t：子串、模板串；
+- 从s中找到t的过程叫做定位或模式匹配。
+
+算法过程：
+
+1. s = "s1s2...sn"，t = "t0t1...tn"
+2. ​
