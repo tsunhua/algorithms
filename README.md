@@ -410,9 +410,9 @@ int binarySearch(int R[], int n, int key) {
 
 > LR型，左孩子的右子树上添加节点导致不平衡，解决方式是**先左旋后右旋平衡**。
 
-
+![](https://raw.githubusercontent.com/LinLshare/algorithms/master/img/LR%E5%9E%8B%E4%BA%8C%E5%8F%89%E6%A0%91.png)
 
 > RL型，右孩子的左子树上添加节点导致不平衡，解决方式是**先右旋后左旋平衡**。
 
-
+![](https://raw.githubusercontent.com/LinLshare/algorithms/master/img/RL%E5%9E%8B%E4%BA%8C%E5%8F%89%E6%A0%91.png)
 
