@@ -425,3 +425,6 @@ int binarySearch(int R[], int n, int key) {
 查找效率：
 
 同样的节点数当其达到最大高度时即是平衡二叉树的最坏情况。此时，类似Fibonacci数列。ASL = O( lgn )。
+
+![](https://raw.githubusercontent.com/LinLshare/algorithms/master/img/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%80%E5%9D%8F%E6%83%85%E5%86%B5.png)
+
