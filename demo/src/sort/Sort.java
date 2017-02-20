@@ -24,7 +24,7 @@ public class Sort {
 				int mid = (low + high) / 2;
 				if (tmp < R[mid]) {
 					high = mid - 1;
-				} else {
+				} else { // 大于或等于的时候请在后面插入，特别是等于的情况不能影响排序的稳定性
 					low = mid + 1;
 				}
 			}
