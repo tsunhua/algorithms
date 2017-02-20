@@ -9,6 +9,11 @@
 
 使用直接遍历方法在有序区找到插入位置。
 
+1. 遍历无序区中的每个元素，设为t；
+2. 再遍历有序区种的元素
+   - 当元素大于t时后移；
+   - 当元素小于等于t时，停止移动插入t。
+
 算法实现：
 
 ```java
@@ -23,6 +28,32 @@ void insertSort(int[] R) {
 		R[j + 1] = tmp;
 	}
 }
+//等价于
+void insertSort3(int[] R){
+	for(int i=1;i<R.length;i++){
+		int tmp = R[i];
+		int j = i-1;
+		for(;j>=0;j--){
+			if(tmp<R[j]){
+				R[j+1] = R[j];
+			}else{
+				break;
+			}
+		}
+		R[j+1] =tmp;
+	}
+}
+//等价于
+void insertSort4(int[] R) {
+	for (int i = 1; i < R.length; i++) {
+		int tmp = R[i];
+		int j = i - 1;
+		for (; j >= 0 && tmp < R[j]; j--) {
+			R[j + 1] = R[j];
+		}
+		R[j + 1] = tmp;
+	}
+}
 ```
 
 #### 折半插入排序
@@ -30,6 +61,10 @@ void insertSort(int[] R) {
 思路：
 
 使用折半查找方法在有序区找到插入位置。
+
+1. 使用二分法找到t要插入的位置；
+2. 后移大于t的数据；
+3. 插入t。
 
 算法实现：
 
@@ -41,10 +76,10 @@ void insertSort2(int[] R) {
 		int high = i - 1;
 		while (low <= high) {
 			int mid = (low + high) / 2;
-			if (tmp > R[mid]) {
-				low = mid + 1;
-			} else {
+			if (tmp < R[mid]) {
 				high = mid - 1;
+			} else { //大于或等于的时候请在后面插入，特别是等于的情况不能影响排序的稳定性
+				low = mid + 1;
 			}
 		}
 		for (int j = i - 1; j >= high + 1; j--) {

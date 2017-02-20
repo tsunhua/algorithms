@@ -7,13 +7,14 @@ public class Main {
 		};
 		Sort sort = new Sort();
 //		sort.insertSort(R);
-//		sort.insertSort2(R);
+		sort.insertSort2(R);
+//		sort.insertSort4(R);
 //		sort.bubbleSort(R);
 //		sort.quickSort(R, 0, R.length-1);
 //		sort.quickSort2(R, 0, R.length-1);
 //		sort.selectSort(R);
 //		sort.heapSort(R, R.length-1);
-		sort.mergeSort(R, R.length);
+//		sort.mergeSort(R, R.length);
 		log(R);
 	}
 	

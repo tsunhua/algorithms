@@ -22,16 +22,50 @@ public class Sort {
 			int high = i - 1;
 			while (low <= high) {
 				int mid = (low + high) / 2;
-				if (tmp > R[mid]) {
-					low = mid + 1;
-				} else {
+				if (tmp < R[mid]) {
 					high = mid - 1;
+				} else {
+					low = mid + 1;
 				}
 			}
 			for (int j = i - 1; j >= high + 1; j--) {
 				R[j + 1] = R[j];
 			}
 			R[high + 1] = tmp;
+		}
+	}
+
+	// 基本插入排序2
+	void insertSort3(int[] R) {
+		if (R == null || R.length < 2) {
+			return;
+		}
+		for (int i = 1; i < R.length; i++) {
+			int tmp = R[i];
+			int j = i - 1;
+			for (; j >= 0; j--) {
+				if (tmp < R[j]) {
+					R[j + 1] = R[j];
+				} else {
+					break;
+				}
+			}
+			R[j + 1] = tmp;
+		}
+	}
+
+	// 等价写法
+	void insertSort4(int[] R) {
+		if (R == null || R.length < 2) {
+			return;
+		}
+		for (int i = 1; i < R.length; i++) {
+			int tmp = R[i];
+			int j = i - 1;
+			for (; j >= 0 && tmp < R[j]; j--) {
+				R[j + 1] = R[j];
+			}
+			R[j + 1] = tmp;
 		}
 	}
 
@@ -154,7 +188,7 @@ public class Sort {
 		}
 	}
 	// -------------------------堆排序 end----------------
-	
+
 	// -------------------------归并排序 start----------------
 	// 归并两个表,表1：low~mid,表2：mid+1~high
 	void merge(int R[], int low, int mid, int high) {
@@ -194,17 +228,17 @@ public class Sort {
 	// 对整个表进行一趟归并
 	void mergePass(int[] R, int length, int n) {
 		int i;
-		//表1：i ~ i+length-1
-		//表2：i+length ~ i+2*length-1
-		//表3：i+2*length ~ i+3*length-1
+		// 表1：i ~ i+length-1
+		// 表2：i+length ~ i+2*length-1
+		// 表3：i+2*length ~ i+3*length-1
 		for (i = 0; i + 2 * length - 1 < n; i = i + 2 * length) {
-			//当下两个相邻表的末尾一个元素大于等于n时跳出循环
+			// 当下两个相邻表的末尾一个元素大于等于n时跳出循环
 			merge(R, i, i + length - 1, i + 2 * length);
 		}
-		
-		if (i + length - 1 < n) {//此时剩下最后的两个相邻表
+
+		if (i + length - 1 < n) {// 此时剩下最后的两个相邻表
 			merge(R, i, i + length - 1, n - 1);
-		}//否则，只剩下最后一张表，不用归并
+		} // 否则，只剩下最后一张表，不用归并
 	}
 
 	// 从小表合并到大表
