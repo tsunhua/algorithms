@@ -251,6 +251,7 @@ void selectSort(int[] R) {
 ```java
 // 筛选算法：目的在于将两子堆与父节点一起构成大堆。
 // 当发生子节点与父节点交换时，该子节点原先的堆可能被打破，需要向下迭代建堆。
+// low是当前堆的父节点，high保证当前堆的节点的范围
 void sift(int[] R, int low, int high) {
 	int i = low, j = 2 * i+1; //R[j]为R[i]左孩
 	int  tmp = R[i];
