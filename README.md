@@ -310,6 +310,10 @@ void heapSort(int[] R, int n) {
 
    length从1到n-1，层层归并。
 
+归并过程：
+
+![归并过程](https://raw.githubusercontent.com/LinLshare/algorithms/master/img/%E5%BD%92%E5%B9%B6%E8%BF%87%E7%A8%8B.jpg)
+
 算法实现：
 
 ```java
