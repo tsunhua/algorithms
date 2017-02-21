@@ -242,6 +242,10 @@ void selectSort(int[] R) {
 
 数组 ——> 大根堆 ——>置换到无序区尾部，循环
 
+建堆过程：
+
+![建堆过程](https://raw.githubusercontent.com/LinLshare/algorithms/master/img/%E5%BB%BA%E5%A0%86%E8%BF%87%E7%A8%8B.jpg)
+
 算法实现：
 
 ```java
