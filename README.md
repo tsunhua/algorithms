@@ -141,7 +141,7 @@ void bubbleSort(int[] R) {
 3. 遍历完毕，将q位置的元素与t位置的元素互换；
 4. 两边进行快排。
 
-
+![](https://raw.githubusercontent.com/LinLshare/algorithms/master/img/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%952%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 
 算法实现：
 
@@ -201,6 +201,10 @@ void quickSort2(int[] R, int s, int t) {
 思路：
 
 每次从无序区选出一个最小的放置到有序区。
+
+1. 遍历全部，取当前索引值作为基准；
+2. 遍历其后的无序区，若小于基准值则更新最小者的序号；
+3. 判定最小者的序号有没有改变，有的话交换数据。
 
 算法实现：
 
